@@ -39,7 +39,7 @@ class MongoDB:
 		except:
 			return False
 
-	def find(self, data, select, limit = False):
+	def find(self, select, limit = False):
 		try:
 			if limit:
 				return self.post.find(select).limit(limit)
