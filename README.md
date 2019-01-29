@@ -17,10 +17,10 @@ Javlibrary爬虫 for Python3，该项目可以实现以下功能:
   pip install pymongo
   pip install retrying
   ```
-* 此外还需要[chrome驱动](http://blog.csdn.net/guodongxiaren "chrome驱动下载")，各驱动对应chrome版本号如下：
-  ChromeDriver v2.45 (2018-12-10)----------Supports Chrome v70-72
-  ChromeDriver v2.44 (2018-11-19)----------Supports Chrome v69-71
-  ChromeDriver v2.43 (2018-10-16)----------Supports Chrome v69-71
+###此外还需要[chrome驱动](http://blog.csdn.net/guodongxiaren "chrome驱动下载")，各驱动对应chrome版本号如下：
+* ChromeDriver v2.45 (2018-12-10)----------Supports Chrome v70-72
+* ChromeDriver v2.44 (2018-11-19)----------Supports Chrome v69-71
+* ChromeDriver v2.43 (2018-10-16)----------Supports Chrome v69-71
 
 ##怎么开始
 ###以下例子完成查找指定演员所有影片及磁力链接的操作：
