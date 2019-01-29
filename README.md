@@ -1,5 +1,5 @@
 # Javlibrary
-
+-----------------------------------
 Javlibrary爬虫 for Python3，该项目可以实现以下功能:
 * 获取最高评分/最受期待榜的作品
 * 获取所有演员名及其作品目录地址
@@ -8,7 +8,8 @@ Javlibrary爬虫 for Python3，该项目可以实现以下功能:
 * 输出内容到excel
 
 ## 安装一下
-* 需要安装以下包
+---------------------------------
+### 需要安装以下包
   ```Pyhon
   pip install requests
   pip install BeautifulSoup
@@ -17,12 +18,13 @@ Javlibrary爬虫 for Python3，该项目可以实现以下功能:
   pip install pymongo
   pip install retrying
   ```
-### 此外还需要[chrome驱动](http://blog.csdn.net/guodongxiaren "chrome驱动下载")，各驱动对应chrome版本号如下：
+### 依赖[chrome驱动](http://blog.csdn.net/guodongxiaren "chrome驱动下载")，各驱动对应chrome版本号如下：
 * ChromeDriver v2.45 (2018-12-10)----------Supports Chrome v70-72
 * ChromeDriver v2.44 (2018-11-19)----------Supports Chrome v69-71
 * ChromeDriver v2.43 (2018-10-16)----------Supports Chrome v69-71
 
 ## 怎么开始
+----------------------------------
 ### 以下例子完成查找指定演员所有影片及磁力链接的操作：
   ```Pyhon
   if __name__ == '__main__':
@@ -30,16 +32,18 @@ Javlibrary爬虫 for Python3，该项目可以实现以下功能:
     jav.girlindex('初川みなみ')
   ```
 
-##方法说明
-| 方法 |功能|参数|
+## 方法说明
+--------------------------
+|方法|功能|参数|
 | :----------: | :-----------:|:-----------:|
-| rank   | 获取最高评分/最受期待榜的作品及磁力链接  | mode:排行榜种类 |
-| girlindex   |  获取指定演员所有作品及磁力链接  | girl:演员名 |
+| rank   | 获取最高评分/最受期待榜的作品及磁力链接  | mode排行榜种类 |
+| girlindex   |  获取指定演员所有作品及磁力链接  | girl演员名 |
 | allgirls   |  更新所有演员名及地址  | NULL |
-| torrent   |  获取指定番号磁力链接   | identity:番号 |
-| write_down   |  输出内容到excel   | data:list(dict)数据, filename:文件名 |
+| torrent   |  获取指定番号磁力链接   | identity番号 |
+| write_down   |  输出内容到excel   | datas数据, filename文件名 |
 
 ## 举个栗子
+----------------------------
 * 获取最高评分/最受期待榜的作品及磁力链接
 ```Pyhon
 jav = JavLib(mode = 'mostwanted') # mode 默认为bestrated
@@ -64,6 +68,7 @@ jav.write_down(list_torrent, identity) # 输出到identity.xlsx
 ```
 
 ## 数据库
+-------------------------------------------
 ### 本项目使用MongoDB作为数据库：
 * MongoDB('Javdb', 'girlsname')  # 所有girl名称—>页面编码键值对
 * MongoDB('Javdb', 'rankdb')  # 最高评分/最受期待榜
