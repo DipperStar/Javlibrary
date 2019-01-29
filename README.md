@@ -48,17 +48,17 @@ Javlibrary爬虫 for Python3，该项目可以实现以下功能:
 ```Python
 jav = JavLib(mode = 'mostwanted') # mode 默认为bestrated
 jav.rank()
-self.rankdb().find(select) # 从rankdb输出
+jav.rankdb().find(select) # 从rankdb输出
 ```
 * 获取指定演员所有作品及磁力链接
 ```Python
 jav.girlindex('初川みなみ')
-self.rankdb().find(select) # 从rankdb输出
+jav.rankdb().find(select) # 从rankdb输出
 ```
 * 更新演员名录
 ```Python
 jav.allgirls()
-self.girlsindexdb ().find(select) # 从rankdb输出
+jav.girlsindexdb ().find(select) # 从rankdb输出
 ```
 * 获取指定番号磁力链接
 ```Python
