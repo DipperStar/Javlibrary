@@ -10,7 +10,7 @@ Javlibrary爬虫 for Python3，该项目可以实现以下功能:
 ## 安装一下
 ---------------------------------
 ### 需要安装以下包
-  ```Pyhon
+  ```Python
   pip install requests
   pip install BeautifulSoup
   pip install pandas
@@ -26,7 +26,7 @@ Javlibrary爬虫 for Python3，该项目可以实现以下功能:
 ## 怎么开始
 ----------------------------------
 ### 以下例子完成查找指定演员所有影片及磁力链接的操作：
-  ```Pyhon
+  ```Python
   if __name__ == '__main__':
     jav = JavLib()
     jav.girlindex('初川みなみ')
@@ -45,23 +45,23 @@ Javlibrary爬虫 for Python3，该项目可以实现以下功能:
 ## 举个栗子
 ----------------------------
 * 获取最高评分/最受期待榜的作品及磁力链接
-```Pyhon
+```Python
 jav = JavLib(mode = 'mostwanted') # mode 默认为bestrated
 jav.rank()
 self.rankdb().find(select) # 从rankdb输出
 ```
 * 获取指定演员所有作品及磁力链接
-```Pyhon
+```Python
 jav.girlindex('初川みなみ')
 self.rankdb().find(select) # 从rankdb输出
 ```
 * 更新演员名录
-```Pyhon
+```Python
 jav.allgirls()
 self.girlsindexdb ().find(select) # 从rankdb输出
 ```
 * 获取指定番号磁力链接
-```Pyhon
+```Python
 indentity = 'SSNI-266'
 list_torrent = jav.torrent(indentity)[indentity] # 获得list(dict)结构数据
 jav.write_down(list_torrent, identity) # 输出到identity.xlsx
