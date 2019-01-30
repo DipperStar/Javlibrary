@@ -48,5 +48,12 @@ class MongoDB:
 		except:
 			return False
 
+	def distinct(self, label, select = None):
+		try:
+			return self.post.distinct(label, filter = select)
+		except:
+			return False
+
+
 
 
