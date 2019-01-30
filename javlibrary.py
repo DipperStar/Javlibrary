@@ -17,8 +17,7 @@ urllib3.disable_warnings()
 
 
 class JavLib(object):
-    def __init__(self, mode='bestrated'):
-        self.mode = mode
+    def __init__(self):
         self.cookie = ''
         self.url = 'http://www.p26y.com/cn/'
         self.torrent_url = 'https://www.bturl.at/search/'
@@ -99,8 +98,7 @@ class JavLib(object):
         soup = BeautifulSoup(resp.content, 'lxml')
         searchitem = soup.find_all('div', class_='searchitem')
         for girl in searchitem:
-            print(girl.a.text, girl['id'],
-                  self.allgirls.update({'girls': girl.a.text, 'code': girl['id']}, upsert=True))
+            print(girl.a.text, girl['id'], self.allgirls.update({'girls': girl.a.text, 'code': girl['id']}, upsert=True))
 
         if soup.find_all('a', class_='page next'):
             next_page = soup.find_all('a', class_='page next')[0]['href']
@@ -127,11 +125,11 @@ class JavLib(object):
             identity = title.split(' ')[0]
             self.video[identity] = {'score': score, 'title': title}
 
-    # @retry
+    @retry
     def soup_girlindex(self, url, girl):
         """
         单个girl的作品目录解析，得到文章数，评论数，番号，标题，存入girlsindexdb
-        :param resp:girl作品目录的response
+        :param url:girl作品目录的url
         :return:存入girlsindexdb
         """
         resp = requests.get(url, headers=self.headers, verify=False)
@@ -177,13 +175,13 @@ class JavLib(object):
                                       'torrent_time': torrent_time
                                       }, upsert=True)
 
-    def rank(self):
+    def rank(self, mode='bestrated'):
         """
         获取排行榜作品
         """
         dic_mode = {'bestrated': 'http://www.p26y.com/cn/vl_bestrated.php?list&page={}',
                     'mostwanted': 'vl_mostwanted.php?list&page={}'}  # 最高评价,最受期待
-        real_url = parse.urljoin(self.url, dic_mode[self.mode])
+        real_url = parse.urljoin(self.url, dic_mode[mode])
         self.get_cookie(self.url)
         for pages in range(1, 11):  # 获取排行榜前10页作品信息
             now_url = real_url.format(pages)
@@ -248,4 +246,3 @@ class JavLib(object):
 
 if __name__ == '__main__':
     jav = JavLib()
-    jav.girlindex('初川みなみ')
